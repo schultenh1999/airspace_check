@@ -83,4 +83,34 @@ python airspace_check.py [geojson | geojson_dir] [--dir IGC_DIR]
     - Schaltet die feste 50-m-Höhenkorrektur ein/aus (H = h − 50 m).
     - Das ist eine vereinfachte Annäherung für GPS-→MSL.
 
+# Ordnerstruktur
+
+```
+projekt/
+├─ ressources/
+│  ├─ de_asp.geojson
+│  └─ weitere_gebiete.geojson
+├─ input/
+│  ├─ flug1.IGC
+│  └─ flug2.IGC
+├─ output/
+│  └─ (wird vom Skript befüllt)
+├─ event_plots/
+│  └─ (wird vom Skript befüllt, wenn --plots)
+└─ airspace_check.py
+```
+
+# CSV-Output
+
+Spalten (pro Event/Verletzung):
+- airspace_name, airspace_type
+- class (z. B. C, D, TMZ, RMZ, R)
+- icao_class_raw (Originalfeld aus GeoJSON, ggf. Zahl 0–6 → A–G)
+- entry_utc, exit_utc (Interpolationszeitpunkte)
+- duration_s (Sekunden)
+- entry_lon, entry_lat, exit_lon, exit_lat
+- lower_m, upper_m (in m; leer, wenn ∞)
+- max_alt_m (max. Höhe innerhalb der Verletzung, nach 50-m-Offset wenn aktiv)
+CSV wird nur erzeugt, wenn mindestens ein Event gefunden wurde!
+
 
