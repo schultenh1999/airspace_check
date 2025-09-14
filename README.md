@@ -12,7 +12,7 @@
     - Kombinierte Modi (siehe --filter)
 - Höhenlogik
     - Luftraum-Höhen (Lower/Upper) aus OpenAIP (GND/SFC, FL, ft, m)
-    - Einfache Höhenkorrektur: fester Offset 50 m (GPS h → MSL H = h − 50 m); deaktivierbar
+    - Einfache Höhenkorrektur: fester Offset 46 m (GPS h → MSL H = h − 50 m); deaktivierbar
 - Erkennung
     - Schnelle Kandidatensuche via Shapely STRtree
     - Eintritts-/Austrittszeitpunkt linear entlang Segment interpoliert
@@ -80,7 +80,7 @@ python airspace_check.py [geojson | geojson_dir] [--dir IGC_DIR]
     - OSM, CartoDB.Positron, Stamen.Terrain, Stamen.TonerLite …
     - (Dot-Pfad ist möglich, analog ctx.providers.X.Y.)
 - --geoid-correct / --no-geoid-correct (Default: --geoid-correct)
-    - Schaltet die feste 50-m-Höhenkorrektur ein/aus (H = h − 50 m).
+    - Schaltet die feste 46-m-Höhenkorrektur ein/aus (H = h − 50 m).
     - Das ist eine vereinfachte Annäherung für GPS-→MSL.
 
 # Ordnerstruktur
@@ -110,7 +110,7 @@ Spalten (pro Event/Verletzung):
 - duration_s (Sekunden)
 - entry_lon, entry_lat, exit_lon, exit_lat
 - lower_m, upper_m (in m; leer, wenn ∞)
-- max_alt_m (max. Höhe innerhalb der Verletzung, nach 50-m-Offset wenn aktiv)
+- max_alt_m (max. Höhe innerhalb der Verletzung, nach 46-m-Offset wenn aktiv)
 CSV wird nur erzeugt, wenn mindestens ein Event gefunden wurde!
 
 
