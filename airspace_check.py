@@ -713,7 +713,7 @@ def main():
     ap.add_argument("--no-basemap", dest="basemap", action="store_false", help="Basemap deaktivieren.")
     ap.add_argument("--basemap-provider", type=str, default="CartoDB.Positron", help="Basemap-Provider (z. B. OSM, Stamen.Terrain, CartoDB.Positron).")
     ap.add_argument("--geoid-correct", dest="geoid_correct", action="store_true", default=True,
-                    help="Höhen pauschal um 50 m auf MSL korrigieren (Default: an).")
+                    help="Höhen pauschal um 46 m auf MSL korrigieren (Default: an).")
     ap.add_argument("--no-geoid-correct", dest="geoid_correct", action="store_false",
                     help="50-m-Korrektur deaktivieren.")
     args = ap.parse_args()
@@ -771,7 +771,7 @@ def main():
         print(f"=== {igc.name} ===")
         track, meta = read_igc_track_with_meta(igc)
         if args.geoid_correct:
-            track = _apply_fixed_offset(track, 50.0)
+            track = _apply_fixed_offset(track, 46.0)
         if len(track) < 2:
             print("  (Track zu kurz oder keine B-Records)"); continue
 
