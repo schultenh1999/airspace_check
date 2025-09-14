@@ -32,6 +32,7 @@
 ```
 pip install shapely matplotlib contextily pyproj geojson fiona rasterio
 ```
+Für die Nutzung ist der Download aktueller Luftraumdateien im GeoJSON-Format notwendig. Diese müssen im ressources-Ordner abgelegt werden.
 
 # Nutzung
 
